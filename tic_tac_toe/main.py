@@ -87,21 +87,25 @@ class TicTacToeGame:
             self.print_board()
         elif cmd == 'quit':
             raise excs.UserQuitException('До новых встреч!')
-        elif cmd.isdigit():
-            num = int(cmd) - 1
-            self.validate_numeric_input(num)
-            self.make_move(num)
         else:
-            raise excs.UnknownCommandError('Незнакомая команда')
+            num = self.validate_numeric_input(cmd)
+            self.make_move(num)
 
-    def validate_numeric_input(self, num):
+    def validate_numeric_input(self, cmd):
         'Валидация числового ввода'
+
+        try:
+            num = int(cmd) - 1
+        except ValueError as exc:
+            raise excs.UnknownCommandError('Неизвестная команда!') from exc
 
         if num < 0 or num > 8:
             raise excs.InvalidNumberError('Номер клетки должен быть от 1 до 9')
 
         if self.board[num] != '.':
             raise excs.InvalidNumberError('Клетка уже занята')
+
+        return num
 
     def make_move(self, num):
         'Ход'

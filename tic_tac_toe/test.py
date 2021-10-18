@@ -5,13 +5,6 @@ import exceptions as excs
 from main import TicTacToeGame
 
 
-class TestValidateNumericInput(unittest.TestCase):
-    'Test validate_numeric_input'
-
-    def setUp(self):
-        self.game = TicTacToeGame()
-
-
 class TestProcessInput(unittest.TestCase):
     'Test process_input'
 
@@ -35,6 +28,12 @@ class TestProcessInput(unittest.TestCase):
         self.game.board[4] = 'X'
         self.assertRaises(
                 excs.InvalidNumberError, self.game.process_input, '5',
+        )
+
+    def test_digit_symbols(self):
+        'Введены специальные символы с isdigit == True'
+        self.assertRaises(
+                excs.UnknownCommandError, self.game.process_input, '²',
         )
 
     def test_unknown_command(self):
