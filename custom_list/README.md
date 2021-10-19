@@ -28,4 +28,4 @@ True
 ```
 
 ### Run tests
-`tic_tac_toe > python3 test.py`
+`custom_list > python3 test.py`
