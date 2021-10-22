@@ -1,7 +1,7 @@
 ## CustomMeta
 
 ### To see in python terminal
-`custom_meta > python3 -i main.py`
+`custom_meta $ python3 -i main.py`
 
 ### Implements metaclass that adds 'custom_' prefix to all (non-magic) methods
 ```python
@@ -35,4 +35,4 @@ AttributeError: 'CustomClass' object has no attribute 'line'
 
 
 ### Run tests
-`custom_meta > python3 test.py`
+`custom_meta $ python3 test.py`

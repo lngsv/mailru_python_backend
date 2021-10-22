@@ -1,7 +1,7 @@
 ## CustomList
 
 ### To see in python terminal
-`custom_list > python3 -i main.py`
+`custom_list $ python3 -i main.py`
 
 ### Implements element-wise addition and subtraction
 ```python
@@ -28,4 +28,4 @@ True
 ```
 
 ### Run tests
-`custom_list > python3 test.py`
+`custom_list $ python3 test.py`
