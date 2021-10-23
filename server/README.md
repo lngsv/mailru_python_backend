@@ -50,5 +50,6 @@ server $ source <venv_dir_name>/bin/activate
 (For macOS) \
 To stop nginx `nginx -s stop` \
 Nginx access log `/usr/local/var/log/nginx/access.log` \
-Nginx error log `/usr/local/var/log/nginx/error.log`
-
+Nginx error log `/usr/local/var/log/nginx/error.log` \
+Load testing with ApacheBench `ab -k -c 958 -n 10000 'http://127.0.0.1:8089/get_static/google.jpeg'` \
+DoS for static documents with `c=958`, `n=10000`

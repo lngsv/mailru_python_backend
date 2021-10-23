@@ -1,0 +1,42 @@
+This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 127.0.0.1 (be patient)
+
+
+Server Software:        nginx/1.21.3
+Server Hostname:        127.0.0.1
+Server Port:            8089
+
+Document Path:          /get_static/google.jpeg
+Document Length:        18136 bytes
+
+Concurrency Level:      4
+Time taken for tests:   0.576 seconds
+Complete requests:      5000
+Failed requests:        0
+Total transferred:      91865000 bytes
+HTML transferred:       90680000 bytes
+Requests per second:    8686.27 [#/sec] (mean)
+Time per request:       0.460 [ms] (mean)
+Time per request:       0.115 [ms] (mean, across all concurrent requests)
+Transfer rate:          155852.40 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.1      0       1
+Processing:     0    0   0.1      0       1
+Waiting:        0    0   0.1      0       1
+Total:          0    0   0.1      0       2
+
+Percentage of the requests served within a certain time (ms)
+  50%      0
+  66%      0
+  75%      0
+  80%      1
+  90%      1
+  95%      1
+  98%      1
+  99%      1
+ 100%      2 (longest request)
