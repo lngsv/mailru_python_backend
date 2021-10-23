@@ -39,3 +39,16 @@ server $ source <venv_dir_name>/bin/activate
 
 ### Send request via browser or console
 `http://127.0.0.1:8000/blablab/sflkdf?a=234&c=15`
+
+## Proxy
+1. Start gunicorn
+1. (re)Start nginx
+1. `localhost:8089/get_static/' -> static from `public/`
+1. `localhost:8089/api/` -> proxy gunicorn
+
+## Little help
+(For macOS) \
+To stop nginx `nginx -s stop` \
+Nginx access log `/usr/local/var/log/nginx/access.log` \
+Nginx error log `/usr/local/var/log/nginx/error.log`
+
