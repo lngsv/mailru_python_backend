@@ -43,7 +43,7 @@ server $ source <venv_dir_name>/bin/activate
 ## Proxy
 1. Start gunicorn
 1. (re)Start nginx
-1. `localhost:8089/get_static/' -> static from `public/`
+1. `localhost:8089/get_static/` -> static from `public/`
 1. `localhost:8089/api/` -> proxy gunicorn
 
 ## Little help
