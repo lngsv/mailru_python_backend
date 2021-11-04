@@ -1,13 +1,12 @@
-# from django.db import models
-from dataclasses import dataclass
+from django.db import models
+
+from users.models import User
 
 EVENTS_DB = {}
 
-
-@dataclass
-class Event:
-    event_id: int
-    name: str
-    from_date: str
-    to_date: str
-    comment: str
+class Event(models.Model):
+    name = models.CharField(verbose_name='Event name', max_length=255)
+    from_date = models.DateTimeField(verbose_name='Event start')
+    to_date = models.DateTimeField(verbose_name='Event end')
+    comment = models.CharField(verbose_name='Comment', null=True, max_length=255)
+    creator = models.ForeignKey(User, verbose_name='Event creator', on_delete=models.CASCADE)

@@ -1,6 +1,4 @@
-from dataclasses import asdict
-
-# from django.shortcuts import render
+from django.forms.models import model_to_dict
 from django.http.response import JsonResponse
 from django.http import HttpResponseNotFound, HttpResponseBadRequest
 from django.views.decorators.http import require_http_methods
@@ -33,11 +31,11 @@ def event_details(request):
     found_event = EVENTS_DB.get(event_id)
     if found_event is None:
         return HttpResponseNotFound('Event not found')
-    return JsonResponse(asdict(found_event))
+    return JsonResponse(model_to_dict(found_event))
 
 
 @require_http_methods(['GET'])
 def event_list(request):
     return JsonResponse({
-        'events': [asdict(e) for e in EVENTS_DB.values()]
+        'events': [model_to_dict(e) for e in EVENTS_DB.values()]
     })

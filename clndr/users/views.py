@@ -1,6 +1,4 @@
-from dataclasses import asdict
-
-# from django.shortcuts import render
+from django.forms.models import model_to_dict
 from django.http.response import JsonResponse
 from django.http import HttpResponseNotFound, HttpResponseBadRequest
 from django.views.decorators.http import require_http_methods
@@ -32,9 +30,9 @@ def user_details(request):
     found_user = USERS_DB.get(user_id)
     if found_user is None:
         return HttpResponseNotFound('User not found')
-    return JsonResponse(asdict(found_user))
+    return JsonResponse(model_to_dict(found_user))
 
 
 @require_http_methods(['GET'])
 def user_list(request):
-    return JsonResponse({'users': [asdict(u) for u in USERS_DB.values()]})
+    return JsonResponse({'users': [model_to_dict(u) for u in USERS_DB.values()]})

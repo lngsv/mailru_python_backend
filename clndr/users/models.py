@@ -1,13 +1,10 @@
-# from django.db import models
-from dataclasses import dataclass
+from django.db import models
+
 
 USERS_DB = {}
 
-
-@dataclass
-class User:
-    user_id: int
-    name: str
-    login: str
+class User(models.Model):
+    name = models.CharField(verbose_name='User name', max_length=255)
+    login = models.CharField(verbose_name='User login', max_length=255)
     # pwd: str
     # events: list(Event)
