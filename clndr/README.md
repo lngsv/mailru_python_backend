@@ -11,7 +11,7 @@ clndr $ source <venv_dir_name>/bin/activate
 ### Install requirements
 `(venv) clndr $ pip install -r requirements.txt`
 
-### Run migrate
+### Run migrate (add proper database name, user and password to settings.py)
 `(venv) clndr $ python manage.py migrate`
 
 ## Play with server
