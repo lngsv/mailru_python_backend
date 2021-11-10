@@ -78,12 +78,18 @@ WSGI_APPLICATION = 'application.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+try:
+    from local_settings import PG_USER, PG_PASSWORD
+except Exception as exc:
+    raise ImportError('Create local_settings.py file with PG_USER and PG_PASSWORD in it') from exc
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'clndr',
-        'USER': TODO_USER,
-        'PASSWORD': TODO_PWD,
+        'USER': PG_USER,
+        'PASSWORD': PG_PASSWORD,
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -132,3 +138,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'

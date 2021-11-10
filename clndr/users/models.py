@@ -1,10 +1,16 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 
-USERS_DB = {}
+class User(AbstractUser):
+    def get_absolute_url(self):
+        return reverse('user_details', kwargs=dict(user_id=self.id))
 
-class User(models.Model):
-    name = models.CharField(verbose_name='User name', max_length=255)
-    login = models.CharField(verbose_name='User login', max_length=255)
-    # pwd: str
-    # events: list(Event)
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        ordering = ['username']
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
