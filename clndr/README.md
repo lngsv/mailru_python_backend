@@ -39,6 +39,6 @@ clndr $ source <venv_dir_name>/bin/activate
 `curl http://127.0.0.1:8000/events/` -> see all events \
 `curl http://127.0.0.1:8000/events/<id>/ -d 'comment=New comment' -X PATCH` -> update event `id` \
 `curl http://127.0.0.1:8000/events/<id>/ -X DELETE` -> delete event `id` \
-`curl http://127.0.0.1:8000/events/<id>/ -d 'from_date=1999-11-12 14:45' -d 'to_date=1998-11-12 14:45' -X PATCH` -> trigger validation error (`from_date` > `to_date` \
+`curl http://127.0.0.1:8000/events/<id>/ -d 'from_date=1999-11-12 14:45' -d 'to_date=1998-11-12 14:45' -X PATCH` -> trigger validation error (`from_date` > `to_date`) \
 
 
