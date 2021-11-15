@@ -29,12 +29,16 @@ clndr $ source <venv_dir_name>/bin/activate
 * Go to `127.0.0.1:8000/admin/`
 
 ### Or send http requests
-`curl -X POST 127.0.0.1:8000/users/new/ -d 'name=Alan Gasiev' -d 'login=lngsv'` -> create new user, get id in response \
-`GET http://127.0.0.1:8000/users/user/<id>` -> see user `id` details \
-`GET http://127.0.0.1:8000/users/list/` -> see all users
-`curl -X POST 127.0.0.1:8000/events/new/ -d 'name=Halloween party' -d 'from_date=2021-10-30 13:58' -d 'to_date=2021-10-31 12:44' -d 'comment=Hooray!' -d 'creator_id=<existing user id>'` -> create new event, get id in response \
-`GET http://127.0.0.1:8000/events/event/<id>` -> see event `id` details \
-`GET http://127.0.0.1:8000/events/list/` -> see all events \
-`curl -X POST 127.0.0.1:8000/events/update/<id>` -d 'comment=New comment'` -> update event `id` \
-`curl -X POST 127.0.0.1:8000/events/delete/<id>` -> delete event `id` \
+`curl http://127.0.0.1:8000/users/ -d 'name=Alan Gasiev' -d 'username=lngsv'` -> create new user \
+`curl http://127.0.0.1:8000/users/<id>/` -> see user `id` details \
+`curl http://127.0.0.1:8000/users/` -> see all users \
+`curl http://127.0.0.1:8000/users/<id>/ -X PATCH -d 'bio=About myself'` -> partial update user \
+`curl http://127.0.0.1:8000/users/<id>/ -X PUT ...` -> update user (all fields required) \
+`curl http://127.0.0.1:8000/events/ -d 'name=Halloween party' -d 'from_date=2021-10-30 13:58' -d 'to_date=2021-10-31 12:44' -d 'comment=Hooray!' -d 'creator_id=<existing user id>'` -> create new event \
+`curl http://127.0.0.1:8000/events/<id>/` -> see event `id` details \
+`curl http://127.0.0.1:8000/events/` -> see all events \
+`curl http://127.0.0.1:8000/events/<id>/` -d 'comment=New comment' -X PATCH` -> update event `id` \
+`curl http://127.0.0.1:8000/events/<id>/ -X DELETE` -> delete event `id` \
+`curl http://127.0.0.1:8000/events/<id>/` -d 'from_date=1999-11-12 14:45' -d 'to_date=1998-11-12 14:45' -X PATCH` -> trigger validation error (`from_date` > `to_date` \
+
 
